@@ -16,9 +16,12 @@ pipeline {
     
     stages {
 
-        stage('Checkout') {
-        checkout scm
+        stage('checkout') {
+           steps {
+              checkout scm
+           }
         }
+
         stage('Plan') {
             steps {
                 script {
