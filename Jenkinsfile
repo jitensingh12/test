@@ -21,6 +21,7 @@ pipeline {
                 }
                 //sh 'terraform init -input=false'
                  sh 'echo "Plan..."'
+                 sh 'echo "Plan..." > tfplan.txt'
                 //#sh 'terraform workspace select ${environment}'
                 //#sh "terraform plan -input=false -out tfplan -var 'version=${params.version}' --var-file=environments/${params.environment}.tfvars"
                 //#sh 'terraform show -no-color tfplan > tfplan.txt'
@@ -36,7 +37,7 @@ pipeline {
 
             steps {
                 script {
-                    #def plan = readFile 'tfplan.txt'
+                    //#def plan = readFile 'tfplan.txt'
                     def plan = 'yes'
                     input message: "Do you want to apply the plan?",
                         parameters: [text(name: 'Plan', description: 'Please review the plan', defaultValue: plan)]
