@@ -12,6 +12,10 @@ pipeline {
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
         TF_IN_AUTOMATION      = '1'
     }
+    
+    stage('Checkout') {
+        checkout scm
+    }
 
     stages {
         stage('Plan') {
