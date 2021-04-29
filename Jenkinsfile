@@ -13,11 +13,12 @@ pipeline {
         TF_IN_AUTOMATION      = '1'
     }
     
-    stage('Checkout') {
-        checkout scm
-    }
-
+    
     stages {
+
+        stage('Checkout') {
+        checkout scm
+        }
         stage('Plan') {
             steps {
                 script {
